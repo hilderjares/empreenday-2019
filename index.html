@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> Vue.js </title>
+</head>
+<body>
+	<div id="app">
+		{{msg}}
+		<p v-for="fruit in fruits"> {{fruit.name}} </p>
+		<p> {{ msgCustom("Essa eh uma msg :]") }}</p>
+		<p id="remove"> <button id="btn" v-on:click="onClick"> Click! </button> </p>
+	</div>
+	<script src="vue.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {   
+				msg: 'Ola vue.js',
+				fruits: [
+					{name: 'manga'},
+					{name: 'goiaba'},
+					{name: 'maca'}
+				]
+			},
+			methods: {
+				msgCustom: function(msg) {
+					return msg	
+				},
+				onClick: function() {
+					const $button = document.querySelector("#btn");
+					const $p = document.querySelector("#remove");
+					$button.remove();
+					alert("Otaru");
+				}
+			}
+		})
+	</script>
+</body>
+</html>
+
+
